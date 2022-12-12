@@ -15,7 +15,8 @@ app.get('/pokemon', (req,res)=>{
 })
 
 app.get('/pokemon/:id', (req, res) =>{
-    res.send(req.params.id)
+   const pokemonId = req.params.id;
+   res.render('Show', {pokemon : pokemon[pokemonId]})
 })
 
 app.set('view engine', 'jsx');

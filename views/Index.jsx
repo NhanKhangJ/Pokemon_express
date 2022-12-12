@@ -13,7 +13,7 @@ const Index = ({pokemons}) => {
             return(
             
             <li key={i}>
-            <a href={`pokemon/x`}>{pokemon.name}</a>
+            <a href={`pokemon/${i}`}>{pokemon.name}</a>
             </li>
             )
          })}
