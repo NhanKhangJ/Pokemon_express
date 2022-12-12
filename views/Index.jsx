@@ -11,7 +11,10 @@ const Index = ({pokemons}) => {
        <ul>
          {pokemons.map((pokemon, i)=>{ 
             return(
-            <li key={i}>{pokemon.name}</li>
+            
+            <li key={i}>
+            <a href={`pokemon/x`}>{pokemon.name}</a>
+            </li>
             )
          })}
        </ul>
