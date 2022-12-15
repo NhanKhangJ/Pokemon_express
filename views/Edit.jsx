@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DefaultLayout from './Defaultlayout'
+import DefaultLayout from './DefaultLayout'
 
 
 const pokeShow ={

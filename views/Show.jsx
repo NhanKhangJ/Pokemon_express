@@ -1,5 +1,5 @@
 import React from 'react'
-import DefaultLayout from './Defaultlayout'
+import DefaultLayout from './DefaultLayout'
 
 const pokeShow ={
     width: '1280px',
