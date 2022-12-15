@@ -1,5 +1,5 @@
 import React from 'react'
-import DefaultLayout from './Defaultlayout';
+import DefaultLayout from './DefaultLayout'
 import New from './New';
 
 

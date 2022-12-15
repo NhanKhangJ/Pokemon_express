@@ -11,6 +11,9 @@ dotenv.config()
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+app.set('views', __dirname + '/views' );
+app.set('layout', 'DefaultLayout')
+
 app.use(methodOverride('_method'))
 app.use(bodyPaser.urlencoded({ extended: false}))
 
