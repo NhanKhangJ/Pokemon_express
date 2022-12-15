@@ -1,29 +1,49 @@
 import React from 'react'
+import DefaultLayout from './Defaultlayout';
+import New from './New';
 
 
 const myStyle = {
-    color: 'green',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fe5858',
     display: 'flex',
-    padding: '5px  1rem 5px 1rem',
-  
-
+    padding: '5px  1rem 5px 2.3rem',
+    justifyContent: 'start',
+    border: '1px solid black',
+    borderRadius: '10px',
+    margin: '0 15px 6px 15px',
+    flexWrap : 'wrap'
 };
+
+const display = {
+  backgroundColor: '#fe5858',
+  display: 'flex',
+  padding: '5px  1rem 5px 2.3rem',
+  justifyContent: 'start',
+  border: '1px solid black',
+  borderRadius: '10px',
+  margin: '0 15px 6px 15px',
+  flexWrap : 'wrap',
+  display: 'none'
+}
+
 const pokeDiv = {
   width: '200px',
   textAlign: 'center',
   borderRadius: '10px',
   border:'2px solid black',
-  margin: '5px'
+  margin: '5px',
+  backgroundColor: '#fefefe'
 }
 
 const pokename ={
-  textDecoration: 'none'
+  textDecoration: 'none',
+  color: '#fefefe'
 }
 
 const pokeImage={
   width: '200px',
-  height: ' 155px'
+  height: ' 155px',
+  backgroundColor: '#585858'
 }
 
 const pokeNav ={
@@ -35,48 +55,95 @@ const pokeNav ={
 
 const mainPage= {
   width: '1280px',
-  margin: "0 auto"
+  margin: "0 auto",
+  zIndex: '0',
+  top: '60px',
+  position: 'relative',
+
 }
 
 const pokeButton ={
   display: 'flex',
-  justifyContent: 'space-around'
+  justifyContent: 'center'
 }
 const pokeCollect ={
-  textAlign: 'center'
+  textAlign: 'center',
+  borderRadius: '10px',
+  border:'2px solid black',
+  width: '75%',
+  backgroundColor: '#585858'
 }
+
+const pokeBody ={
+  display:'flex',
+  // gridTemplateColumns: '1fr 25%'  ,
+  // gap: '10px',
+  position: 'relative'
+}
+
+const newPokeHeaderDiv ={
+  textAlign:'center',
+  border: '1px solid black',
+  borderRadius: '10px',
+  margin: '15px',
+  backgroundColor: '#fefefe',
+}
+
+const btn ={
+  fontSize: '1.2em',
+  margin:'13px',
+  padding:'6px',
+  borderRadius: '10px',
+  marginRight: '6px',
+  backgroundColor: '#fe5858'
+}
+const btn2 ={
+  fontSize: '1.2em',
+  margin:'13px',
+  padding:'6px',
+  borderRadius: '10px',
+  marginLeft: '6px',
+  backgroundColor: '#585858',
+  color: '#fefefe'
+}
+
 
 const Index = ({pokemons}) => {
   return (
+    <>
+    <DefaultLayout title="test">
+    <New />
     <div style={mainPage}>
-    <nav style={pokeNav}>
-      <h1>CRUD POKEMON</h1>
-      <a style={{ textDecoration: 'none'}} href='/pokemon/new'>Add Pokemon</a>
-    </nav>
-    <br></br>
+    <section style={pokeBody}>
     <div style={pokeCollect}>
-    <h1>Your collection</h1>
-    <div style={myStyle}>
+    <div style={newPokeHeaderDiv}>
+    <h1 style={{color:'#fe5858'}}>Your collection</h1>
+    </div>
+    <div style={ pokemons.length > 0 ? myStyle : {display:'none'} }>
          {pokemons.map((pokemon, i)=>{ 
             return(
             <div style={pokeDiv} key={i}>
-            <h1>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h1>
+            <h1 style={{color:'#585832'}}> {pokemon.name? pokemon.name.toUpperCase(): 'Pokemon'} </h1>
             <img style={pokeImage} src={`${pokemon.img}`}></img>
-            <hr />
-            <p>Lorem ipsum quas lorepsad</p>
+           <hr />
             <div style={pokeButton}>
-            <button><a style={pokename} href={`pokemon/${pokemon._id}`}>Details</a></button>
+            <button style={btn}><a style={pokename} href={`pokemon/${pokemon._id}`}>Details</a></button>
             <form action={`/pokemon/${ pokemon._id }?_method=DELETE`} method="POST">
-            <button type="submit" value='Delete'>Delete</button>
+            <button style={btn2} type="submit" value='Delete'>Delete</button>
             </form>
             </div>
             </div>
             )
          })}
      </div>
-     <footer></footer>
     </div>
+   
+    </section>
+  
    </div>
+
+   </DefaultLayout>
+   </>
   )
 }
 

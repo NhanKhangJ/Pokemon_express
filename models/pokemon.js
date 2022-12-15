@@ -1,8 +1,16 @@
  const mongoose = require('mongoose')
 
  const pokemonSchema = ({
-    name: String,
-    img: String
+    name:{
+      type: String,
+      require: true
+    },
+    img:{
+      type: String,
+    },
+    description:{
+      type: String,
+    }
  })
 
  const Pokemon = mongoose.model('Pokemon', pokemonSchema)
